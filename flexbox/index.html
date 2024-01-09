@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Flex box</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <style>
+        #maindiv{
+            display: flex;
+            border: 2px solid black;
+            padding:10px;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            background-color: rgb(255, 228, 196);
+        }
+
+        #maindiv > div{
+            margin: 5px;
+            height: 150px;
+            width: 150px;
+            border: 2px solid black;
+        }
+        
+        .child1{
+            background-color:red;
+        }
+
+        .child2{
+            background-color:yellow;
+        }
+
+        .child3{
+            background-color:green;
+        }
+
+        .child4{
+            background-color:purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+</html>
+
+<script>
+    const rootElement = document.getElementById("root")
+    const maindiv = React.createElement("div",{id:"maindiv"},"Parent",
+        [
+            React.createElement("div", {class:"child1"}, "1"),
+            React.createElement("div", {class:"child2"}, "2"),
+            React.createElement("div", {class:"child3"}, "3"),
+            React.createElement("div", {class:"child4"}, "4")
+        ])
+
+    const reactRoot = ReactDOM.createRoot(rootElement)
+
+    reactRoot.render(maindiv);
+</script>
